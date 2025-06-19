@@ -3,7 +3,10 @@
 
 import * as JsonSchema from "jsonschema";
 
+// Validator var for use in validation function
 const validator = new JsonSchema.Validator();
+
+// Example Validation [START]
 const validInstance = 4;
 const invalidInstance = "Foobar";
 
@@ -17,6 +20,7 @@ console.log(
   "Validation result (invalidInstance):",
   validator.validate(invalidInstance, schemaTest).valid
 );
+// Example Validation [END]
 
 const obj = {
   username: "Foo",
