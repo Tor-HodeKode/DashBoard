@@ -1,4 +1,6 @@
 import "./styles/App.css";
+import React from "react";
+import { Button } from "@/components/ui/button.jsx";
 import SideBar from "./components/SideBar.jsx";
 
 
@@ -20,12 +22,13 @@ function App() {
         <SideBar />
       </aside>
       <main className={styles.main}>
-        <p>Main</p>
+        <Button>Works</Button>
       </main>
       <footer className={styles.footer}>
         <p>Footer content goes here.</p>
       </footer>
     </div>
+    
   );
 }
 
