@@ -1,7 +1,7 @@
-import "./styles/App.css";
 import React from "react";
 import { Button } from "@/components/ui/button.jsx";
 import SideBar from "./components/SideBar.jsx";
+import "./styles/App.css";
 
 
 const styles = {
@@ -28,7 +28,6 @@ function App() {
         <p>Footer content goes here.</p>
       </footer>
     </div>
-    
   );
 }
 
