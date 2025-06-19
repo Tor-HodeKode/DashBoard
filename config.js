@@ -1,0 +1,1 @@
+export const base_url = "/DashBoard" // Base URL for the application
