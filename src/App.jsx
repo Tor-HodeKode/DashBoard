@@ -1,11 +1,12 @@
-import { useState } from "react";
-import "./styles/App.css";
-import SideBar from "./components/SideBar.jsx";
+import React from "react";
+import { Button } from "@/components/ui/button.jsx";
 
 function App() {
   return (
     <main>
-      <SideBar />
+      <div>
+        <Button>Works</Button>
+      </div>
     </main>
   );
 }
