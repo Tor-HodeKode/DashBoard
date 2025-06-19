@@ -1,13 +1,12 @@
 import { useState } from "react";
 import "./styles/App.css";
+import SideBar from "./components/SideBar.jsx";
 
 function App() {
-  const [count, setCount] = useState(0);
-
   return (
-    <div>
-      <h1 class="text-3xl font-bold underline"> Tailwind CSS setup! </h1>
-    </div>
+    <main>
+      <SideBar />
+    </main>
   );
 }
 
