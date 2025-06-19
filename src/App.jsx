@@ -1,5 +1,5 @@
 import React from "react";
-import { Button } from "@/components/ui/button.jsx";
+import { Outlet } from "react-router-dom";
 import SideBar from "./components/SideBar.jsx";
 import "./styles/App.css";
 
@@ -22,7 +22,7 @@ function App() {
         <SideBar />
       </aside>
       <main className={styles.main}>
-        <Button>Works</Button>
+        <Outlet />
       </main>
       <footer className={styles.footer}>
         <p>Footer content goes here.</p>
