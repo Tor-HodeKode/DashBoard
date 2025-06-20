@@ -1,12 +1,13 @@
 // Base URL configuration for different environments
 
-let isDevelopment = false;
-let isGitHubPages = false;
-
-if (typeof window === 'undefined') {
-  isDevelopment = process.env.NODE_ENV === 'development';
-  isGitHubPages = process.env.GITHUB_PAGES === 'true';
-}
+// Handle both server-side (vite.config.js) and client-side (browser) environments
+const isServer = typeof window === 'undefined';
+const isDevelopment = isServer 
+  ? process.env.NODE_ENV === 'development'
+  : import.meta.env.DEV;
+const isGitHubPages = isServer 
+  ? process.env.VITE_GITHUB_PAGES === 'true'
+  : import.meta.env.VITE_GITHUB_PAGES === 'true';
 
 // For development, use root path
 // For GitHub Pages deployment, use the repository name
