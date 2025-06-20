@@ -9,15 +9,16 @@ const Header = () => {
     const [isDark, setIsDark] = useState(getStoredTheme);
 
     useEffect(() => {
+        const classList = document.documentElement.classList;
         if (isDark) {
-            document.documentElement.classList.add("dark");
+            classList.add("dark");
         } else {
-            document.documentElement.classList.remove("dark");
+            classList.remove("dark");
         }
         setStoredTheme(isDark);
 
         const observer = new MutationObserver(() => {
-            setIsDark(document.documentElement.classList.contains("dark"));
+            setIsDark(classList.contains("dark"));
         });
         observer.observe(document.documentElement, {
             attributes: true,
