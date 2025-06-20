@@ -13,4 +13,17 @@ export default defineConfig({
       "@": path.resolve(__dirname, "./src"),
     },
   },
+  build: {
+    assetsDir: "assets",
+    rollupOptions: {
+      output: {
+        // Ensure proper asset file names
+        assetFileNames: (assetInfo) => {
+          return `assets/[name]-[hash][extname]`;
+        },
+        chunkFileNames: "assets/[name]-[hash].js",
+        entryFileNames: "assets/[name]-[hash].js",
+      },
+    },
+  },
 });
