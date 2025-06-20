@@ -1,10 +1,9 @@
-
-import { Button } from "@/components/ui/button.jsx";
+import React from "react";
 
 const DashBoard = () => {
     return (
         <>
-            <Button>Works</Button>
+            <p>Works!</p>
         </>
     );
 }
