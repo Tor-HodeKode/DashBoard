@@ -1,6 +1,12 @@
 // Base URL configuration for different environments
-const isDevelopment = process.env.NODE_ENV === 'development';
-const isGitHubPages = process.env.GITHUB_PAGES === 'true';
+
+let isDevelopment = false;
+let isGitHubPages = false;
+
+if (typeof window === 'undefined') {
+  isDevelopment = process.env.NODE_ENV === 'development';
+  isGitHubPages = process.env.GITHUB_PAGES === 'true';
+}
 
 // For development, use root path
 // For GitHub Pages deployment, use the repository name
