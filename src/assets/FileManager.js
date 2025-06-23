@@ -20,6 +20,6 @@ const path = (folderKey, fileNames) => fileNames.map(fileName => getFilePath(fol
 export default path;
 
 // Use examples:
-// import path from './FileManager.js';
+// import path from '@/assets/FileManager.js';
 // const images = path("background", ["image1.jpg"]);
 // const icons = path("icons", ["icon1.png", "icon2.png"]);
