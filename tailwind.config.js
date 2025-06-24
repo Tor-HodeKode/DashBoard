@@ -6,7 +6,9 @@ export default {
     "./src/**/*.{js,jsx,ts,tsx}",
   ],
   darkMode: "class",
-  safelist: [],
+  safelist: [
+  
+  ],
   theme: {
     extend: {
       colors: {

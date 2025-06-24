@@ -1,12 +1,13 @@
 import { useNavigate } from "react-router-dom";
-import { Button } from "@/components/ui/button";
+import { Button } from "@/components/ui/button.jsx";
+import { tints, btTypes } from "@/styles/globalStyle.jsx";
 
 const styles = {
     notfound: "flex flex-col justify-center items-center h-screen text-center relative bg-[#242424]",
     container: "absolute top-[30%] left-[50%] transform -translate-x-[50%] -translate-y-[50%]",
     headText: "text-red-500 text-3xl font-bold mb-3",
     standardText: "text-[#c5c5c3] text-base font-medium",
-    button: "bg-[#3758eb] text-white px-4 py-2 rounded hover:bg-[#1c41e6] w-auto mt-5"
+    button: tints.purple + btTypes.standard + " mt-5",
 }
 const texts = {
     head: "404 - Page Not Found",

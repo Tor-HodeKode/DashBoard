@@ -4,7 +4,7 @@ import { base_url as base } from "../../config.js";
 
 import App from "../App.jsx";
 import NotFound from "./notfound.jsx";
-import DashBoard from "../pages/DashBoard.jsx";
+import Home from "../pages/home.jsx";
 
 const router = createBrowserRouter(
     [
@@ -19,7 +19,7 @@ const router = createBrowserRouter(
                 },
                 {
                     path: "home",
-                    element: <DashBoard />
+                    element: <Home />
                 }
             ]
         },

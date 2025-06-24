@@ -6,7 +6,7 @@ import "./styles/App.css";
 
 
 const styles = {
-  app: "grid grid-cols-[100px_1fr] grid-rows-[auto_1fr_auto] min-h-screen lg:grid-cols-[200px_1fr]",
+  app: "grid grid-cols-[auto_1fr] grid-rows-[auto_1fr_auto] min-h-screen lg:grid-cols-[auto_1fr]",
   header: "col-span-2 row-start-1 row-end-2 flex items-center justify-center mb-3 p-3",
   sidebar: "row-start-1 row-end-4 col-start-1 col-end-2 p-3",
   main: "row-start-2 row-end-3 col-start-2 col-end-3 flex justify-center pr-3",
