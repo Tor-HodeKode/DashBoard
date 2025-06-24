@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
-
 import { tints, tintsDark } from "@/styles/globalStyle";
 
 export default function SideBar() {
@@ -21,7 +20,7 @@ export default function SideBar() {
       <rect x="4" y="16" width="16" height="2" rx="1" fill="white" />
     </svg>
   );
-  
+
   const texts = {
     header: "DashNav",
     dashboard: "DashBoard",
@@ -32,14 +31,14 @@ export default function SideBar() {
     loggedInAs: "Logget inn som: bruker@email.com",
     openMenu: "Åpne meny",
     closeMenu: "Lukk meny",
-  }
+  };
 
   const navItems = [
-    { name: texts.dashboard, to: "/home"},
-    { name: texts.myDashBoards, to: "#"},
-    { name: texts.addApi, to: "#"},
-    { name: texts.addWidget, to: "#"},
-    { name: texts.settings, to: "#"},
+    { name: texts.dashboard, to: "/home" },
+    { name: texts.myDashBoards, to: "#" },
+    { name: texts.addApi, to: "#" },
+    { name: texts.addWidget, to: "#" },
+    { name: texts.settings, to: "#" },
   ];
 
   const styles = {
@@ -51,7 +50,7 @@ export default function SideBar() {
     navLink: " hover:bg-gray-700 p-2 rounded transition",
     h1: " text-2xl font-bold mb-6",
     bottomText: " mt-auto text-sm text-gray-400",
-  }
+  };
 
   return (
     <div className={styles.sidebarContainer}>
@@ -64,25 +63,19 @@ export default function SideBar() {
         {/* Vis kryss-ikon hvis åpen, ellers hamburger-ikon */}
         {open ? crossIcon : hamburgerIcon}
       </button>
-
       {/* Overlay */}
-      {open && (
-        <div className={styles.overlay} onClick={() => setOpen(false)}/>
-      )}
-
+      {open && <div className={styles.overlay} onClick={() => setOpen(false)} />}
       {/* Sidebar */}
       <aside className={`${styles.sidebar} ${open ? "translate-x-0" : "-translate-x-full"}`}>
         <h1 className={styles.h1}>{texts.header}</h1>
         <nav className={styles.navContainer}>
-          { navItems.map(({ name, to }) => (
+          {navItems.map(({ name, to }) => (
             <Link key={name} to={to} className={styles.navLink} onClick={() => setOpen(false)}>
               {name}
             </Link>
-          )) }
+          ))}
         </nav>
-        <div className={styles.bottomText}>
-          {texts.loggedInAs}
-        </div>
+        <div className={styles.bottomText}>{texts.loggedInAs}</div>
       </aside>
     </div>
   );
