@@ -1,15 +1,11 @@
-import { Button } from "@/components/ui/button.jsx";
+import React from "react";
 
-const styles = {
-  button: "bg-[#242424] text-white px-4 py-2 rounded hover:bg-[#838383] w-auto",
-};
+const DashBoard = () => {
+    return (
+        <>
+            <p>Works!</p>
+        </>
+    );
+}
 
-const Dashboard = () => {
-  return (
-    <>
-      <Button className={styles.button}>Works</Button>
-    </>
-  );
-};
-
-export default Dashboard;
+export default DashBoard;
