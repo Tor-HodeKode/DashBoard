@@ -3,6 +3,7 @@
 
 import * as JsonSchema from "jsonschema";
 import Ajv from "ajv";
+import S from "fluent-json-schema";
 
 // Validator var for use in validation function
 const validator = new JsonSchema.Validator();
@@ -68,4 +69,20 @@ if (ajvalid) {
   console.log("Ajv Data:", ajvDummy);
 } else {
   console.log("Ajv Data:", ajvalidate.errors);
+}
+
+// Fluent Json Schema
+const generateSchema = S.object()
+  .prop("foo", S.integer().required())
+  .prop("bar", S.string().required())
+  .valueOf();
+
+const generatedSchema = ajv.compile(generateSchema);
+
+const generatedResponse = generatedSchema(ajvDummy);
+
+if (generatedResponse) {
+  console.log("Generated Response:", ajvDummy);
+} else {
+  console.log("Generated Response:", generatedSchema.errors);
 }
