@@ -5,7 +5,7 @@ const styles = {
     button: tints.blue + btTypes.standard + " outline-none border-0",
 }
 
-const Dashboard = () => {
+const Home = () => {
   return (
     <>
       <Button className={styles.button}>Works</Button>
@@ -13,4 +13,4 @@ const Dashboard = () => {
   );
 };
 
-export default Dashboard;
+export default Home;
