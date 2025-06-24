@@ -80,7 +80,7 @@ export default function SideBar() {
           )) }
         </nav>
         <div className={styles.bottomText}>
-          Logget inn som: bruker@email.com
+          {texts.loggedInAs}
         </div>
       </aside>
     </div>
