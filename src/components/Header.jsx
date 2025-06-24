@@ -37,7 +37,7 @@ const Header = () => {
         container: "w-full grid grid-cols-[1fr_1fr_1fr] gap-4",
         cLeft: "flex items-center justify-start",
         cCenter: "flex items-center justify-center",
-        cRight: "flex items-center justify-end outline-none border-0",
+        cRight: "flex items-center justify-end",
         bTheme: "py-5 px-1 outline-none border-0 rounded-full bg-transparent shadow-none hover:cursor-pointer dark:hover:bg-[#8b8b8b89] transition-colors duration-300",
     };
 
