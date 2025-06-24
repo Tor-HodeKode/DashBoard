@@ -14,7 +14,9 @@ export const tintsDark = {
   yellow: " dark:bg-[#d9e710] dark:text-black dark:hover:bg-[#d6dd78]",
   purple: " dark:bg-[#6c63ff] dark:text-white dark:hover:bg-[#4238fa]",
   orange: " dark:bg-[#f77f00] dark:text-white dark:hover:bg-[#eeab64]",
+  white: " dark:bg-white dark:text-black dark:hover:bg-[#b4b4b4]",
   transparent: " dark:bg-transparent dark:text:white dark:hover:bg-[#8b8b8b89]",
+
 };
 
 export const btTypes = {
