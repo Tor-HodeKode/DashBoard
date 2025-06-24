@@ -43,8 +43,12 @@ const Header = () => {
 
     return (
         <div className={styles.container}>
-            <div className={styles.cLeft}></div>
-            <div className={styles.cCenter}>Header Component</div>
+            <div className={styles.cLeft}>
+
+            </div>
+            <div className={styles.cCenter}>
+                Header Component
+            </div>
             <div className={styles.cRight}>
                 <Button className={styles.bTheme} onClick={toggleTheme}>
                     {themeIcon}
