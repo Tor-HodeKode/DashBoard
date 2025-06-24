@@ -2,6 +2,7 @@
 // NPM package: https://www.npmjs.com/package/jsonschema
 
 import * as JsonSchema from "jsonschema";
+import Ajv from "ajv";
 
 // Validator var for use in validation function
 const validator = new JsonSchema.Validator();
@@ -35,3 +36,36 @@ const schemaUserObj = {
 };
 
 console.log("Object validator:", validator.validate(obj, schemaUserObj).valid);
+
+// Ajv Example
+const ajv = new Ajv();
+
+// Ajv Schema
+const ajvSchema = {
+  type: "object",
+  properties: {
+    foo: { type: "integer" },
+    bar: { type: "string" },
+  },
+  required: ["foo"],
+  additionalProperties: false,
+};
+
+// Example data
+const ajvDummy = {
+  foo: 1,
+  bar: "abc",
+};
+
+// Compile schema into validator function
+const ajvalidate = ajv.compile(ajvSchema);
+
+// Feed data into validator function
+const ajvalid = ajvalidate(ajvDummy);
+
+// Log result
+if (ajvalid) {
+  console.log("Ajv Data:", ajvDummy);
+} else {
+  console.log("Ajv Data:", ajvalidate.errors);
+}
