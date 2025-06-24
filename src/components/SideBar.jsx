@@ -23,6 +23,7 @@ export default function SideBar() {
   );
   
   const texts = {
+    header: "DashNav",
     dashboard: "DashBoard",
     myDashBoards: "Mine Dashboards",
     addApi: "Legg til API",
@@ -71,7 +72,7 @@ export default function SideBar() {
 
       {/* Sidebar */}
       <aside className={`${styles.sidebar} ${open ? "translate-x-0" : "-translate-x-full"}`}>
-        <h1 className={styles.h1}>DashNav</h1>
+        <h1 className={styles.h1}>{texts.header}</h1>
         <nav className={styles.navContainer}>
           { navItems.map(({ name, to }) => (
             <Link key={name} to={to} className={styles.navLink} onClick={() => setOpen(false)}>
