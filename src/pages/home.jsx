@@ -1,5 +1,6 @@
 
-import { Button, tints, btTypes } from "@/components/ui/button";
+import { Button } from "@/components/ui/button";
+import { tints, btTypes } from "@/styles/globalStyle.jsx";
 
 const styles = {
     button: tints.blue + btTypes.standard + " outline-none border-0",

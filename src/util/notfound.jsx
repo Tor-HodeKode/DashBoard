@@ -1,5 +1,6 @@
 import { useNavigate } from "react-router-dom";
-import { Button, tints, btTypes } from "@/components/ui/button";
+import { Button } from "@/components/ui/button.jsx";
+import { tints, btTypes } from "@/styles/globalStyle.jsx";
 
 const styles = {
     notfound: "flex flex-col justify-center items-center h-screen text-center relative bg-[#242424]",
