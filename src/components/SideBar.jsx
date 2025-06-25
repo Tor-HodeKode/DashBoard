@@ -1,9 +1,12 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import { Link } from "react-router-dom";
 import { themes } from "@/styles/globalStyle";
+import { useTranslation } from "react-i18next";
+import "@/assets/i18n";
 
 export default function SideBar() {
   const [open, setOpen] = useState(false);
+  const { t } = useTranslation("sidebar");
   const yb = themes.yellowBlack;
 
   // Kryss-ikon (close)
@@ -23,15 +26,15 @@ export default function SideBar() {
   );
 
   const texts = {
-    header: "Yerp",
-    dashboard: "Dashboard",
-    myDashBoards: "Mine Dashboards",
-    addApi: "Legg til API",
-    addWidget: "Legg til Widget",
-    settings: "Innstillinger",
-    loggedInAs: "Logget inn som: bruker@email.com",
-    openMenu: "Åpne meny",
-    closeMenu: "Lukk meny",
+    header: t("header"),
+    dashboard: t("dashboard"),
+    myDashBoards: t("myDashBoards"),
+    addApi: t("addApi"),
+    addWidget: t("addWidget"),
+    settings: t("settings"),
+    loggedInAs: t("loggedInAs"),
+    openMenu: t("openMenu"),
+    closeMenu: t("closeMenu"),
   };
 
   const navItems = [
