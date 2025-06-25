@@ -1,4 +1,11 @@
-import { LineChart, Line, XAxis, YAxis, Tooltip, ResponsiveContainer } from "recharts";
+import {
+  LineChart,
+  Line,
+  XAxis,
+  YAxis,
+  Tooltip,
+  ResponsiveContainer,
+} from "recharts";
 
 const dummyEloData = [
   { name: "01.06", elo: 1800 },
@@ -16,7 +23,12 @@ export default function EloChart() {
           <XAxis dataKey="name" stroke="#FFD700" />
           <YAxis stroke="#FFD700" />
           <Tooltip />
-          <Line type="monotone" dataKey="elo" stroke="#FFD700" strokeWidth={3} />
+          <Line
+            type="monotone"
+            dataKey="elo"
+            stroke="#FFD700"
+            strokeWidth={3}
+          />
         </LineChart>
       </ResponsiveContainer>
     </div>
