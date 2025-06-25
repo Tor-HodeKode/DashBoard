@@ -4,6 +4,8 @@ const filePaths = {
     // background: "/images/background",
     icons: "/images/icons",
     // logo: "/images/logo",
+    nb: "/lang/nb",
+    en: "/lang/en",
 };
 
 const getFilePath = (folderKey, fileName) => {

@@ -23,6 +23,7 @@ export const tintsDark = {
 
 export const btTypes = {
   standard: " px-4 py-2 rounded w-auto cursor-pointer",
+  scale: " transition-transform duration-150 hover:scale-110"
 }
 
 export const themes = {
