@@ -88,7 +88,7 @@ if (generatedResponse) {
 }
 
 // Test with real API
-const apiAdress = "https://open.faceit.com/data/v4/games/100";
+const apiAdress = "https://open.faceit.com/data/v4/games/pubg";
 
 let fetched = false;
 
@@ -99,13 +99,13 @@ async function fetchData() {
       const response = await fetch(apiAdress, {
         method: "get",
         headers: new Headers({
-          Authorization: "TODO",
+          Authorization: "Bearer bd8b8212-abb4-4470-8717-f59d43dd7508",
         }),
       });
       if (!response.ok) {
         throw new Error(`Error Status: ${response.status}`);
       }
-      const result = response.json();
+      const result = await response.json();
       console.log(result);
       fetched = false;
       return result;

@@ -25,6 +25,7 @@ export default function SideBar() {
     </svg>
   );
 
+  const user = "bruker@email.com";
   const texts = {
     header: t("header"),
     dashboard: t("dashboard"),
@@ -32,7 +33,7 @@ export default function SideBar() {
     addApi: t("addApi"),
     addWidget: t("addWidget"),
     settings: t("settings"),
-    loggedInAs: t("loggedInAs"),
+    loggedInAs: t("loggedInAs") + user,
     openMenu: t("openMenu"),
     closeMenu: t("closeMenu"),
   };
