@@ -35,25 +35,27 @@ const Header = () => {
     <img src={darkIcon} alt="Dark Mode" />
   );
 
-  const styles = {
-    container: "w-full grid grid-cols-[1fr_1fr_1fr] gap-4",
-    cLeft: "flex items-center justify-start",
-    cCenter: "flex items-center justify-center",
-    cRight: "flex items-center justify-end outline-none border-0",
-    bTheme:
-      "py-5 px-1 outline-none border-0 rounded-full bg-transparent shadow-none hover:cursor-pointer dark:hover:bg-[#8b8b8b89] transition-colors duration-300",
-  };
+    const styles = {
+        container: "w-full grid grid-cols-[1fr_1fr_1fr] gap-4",
+        cLeft: "flex flex-row items-center justify-start",
+        subLeft: "flex items-center mx-auto",
+        cCenter: "flex items-center justify-center",
+        cRight: "flex items-center justify-end",
+        bTheme: "py-5 px-1 outline-none border-0 rounded-full bg-transparent shadow-none hover:cursor-pointer dark:hover:bg-[#8b8b8b89] transition-colors duration-300",
+    };
 
   return (
     <div className={styles.container}>
       <div className={styles.cLeft}>
         {/* Eksempel: Brukeravatar */}
-        <img
-          src="/path/to/avatar.png"
-          alt="Bruker"
-          className="w-8 h-8 rounded-full mr-2"
-        />
-        <span className="font-medium">Ola Nordmann</span>
+        <div className={styles.subLeft}>
+            <img
+              src="#"
+              alt="Bruker"
+              className="w-8 h-8 rounded-full mr-2"
+            />
+            <span className="font-medium">Ola Nordmann</span>
+        </div>
       </div>
       <div className={styles.cCenter}></div>
       <div className={styles.cRight}>

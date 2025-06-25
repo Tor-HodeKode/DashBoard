@@ -1,3 +1,5 @@
+import { Hamburger } from "lucide-react";
+
 // Define tint style
 export const tints = {
   blue: " bg-[#3758eb] text-white hover:bg-[#1c41e6]",
@@ -22,3 +24,17 @@ export const tintsDark = {
 export const btTypes = {
   standard: " px-4 py-2 rounded w-auto cursor-pointer",
 }
+
+export const themes = {
+  yellowBlack: {
+    gradient: " bg-gradient-to-br from-[#232526] to-[#414345]",
+    darkGradient: " dark:from-[#18181b] dark:to-[#27272a]", 
+    textStandard: " text-yellow-400",
+    textDim: " text-yellow-300",
+    textLight: " text-yellow-100",
+    border: " border-yellow-400",
+    hoverGradient: " hover:from-[#414345] hover:to-[#232526] hover:text-yellow-300",
+    overlay: " bg-black/60 dark:bg-black/80 z-40",
+    hover: " hover:bg-yellow-400 hover:text-[#232526]"
+  },
+};

@@ -86,3 +86,55 @@ if (generatedResponse) {
 } else {
   console.log("Generated Response:", generatedSchema.errors);
 }
+
+// Test with real API
+const apiAdress = "https://open.faceit.com/data/v4/games/100";
+
+let fetched = false;
+
+async function fetchData() {
+  if (!fetched) {
+    console.log("Fetching");
+    try {
+      const response = await fetch(apiAdress, {
+        method: "get",
+        headers: new Headers({
+          Authorization: "TODO",
+        }),
+      });
+      if (!response.ok) {
+        throw new Error(`Error Status: ${response.status}`);
+      }
+      const result = response.json();
+      console.log(result);
+      fetched = false;
+      return result;
+    } catch (err) {
+      console.error("Shit broke:", err.message);
+    }
+  } else {
+    console.log("Already Fetched");
+  }
+}
+
+const fetchResult = fetchData();
+
+// Real API Schema
+const gamesSchema = S.object()
+  .prop("assets", S.object().required())
+  .prop("game_id", S.string().required())
+  .prop("long_label", S.string().required())
+  .prop("order", S.integer().required())
+  .prop("parent_game_id", S.string().required())
+  .prop("platforms", S.array().required())
+  .prop("regions", S.array().required())
+  .prop("short_label", S.string().required())
+  .valueOf();
+
+const compiledGamesSchema = ajv.compile(gamesSchema);
+
+const realApiResponse = compiledGamesSchema(fetchResult);
+
+if (realApiResponse) {
+  console.log(fetchResult);
+}
