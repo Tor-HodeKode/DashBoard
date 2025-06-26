@@ -26,7 +26,7 @@ export default function MatchHistory() {
               <td>{match.date}</td>
               <td>{match.opponent}</td>
               <td>{match.map}</td>
-              <td className={match.result === "Win" ? "text-green-400" : "text-red-400"}>
+              <td className={match.result === t("win") ? "text-green-400" : "text-red-400"}>
                 {match.result}
               </td>
               <td>{match.score}</td>
