@@ -8,9 +8,9 @@ import "./styles/App.css";
 const styles = {
   app: "grid grid-cols-[auto_1fr] grid-rows-[auto_1fr_auto] min-h-screen lg:grid-cols-[auto_1fr]",
   header: "col-span-2 row-start-1 row-end-2 flex items-center justify-center mb-3 p-3",
-  sidebar: "row-start-1 row-end-4 col-start-1 col-end-2 p-3",
+  sidebar: "row-start-1 row-end-4 col-start-1 col-end-2",
   main: "row-start-2 row-end-3 col-start-2 col-end-3 flex justify-center px-3",
-  footer: "col-span-2 row-start-3 row-end-4 flex items-center justify-center p-3",
+  footer: "col-span-2 row-start-3 row-end-4 flex items-center justify-center",
 }
 
 function App() {
@@ -26,7 +26,7 @@ function App() {
         <Outlet />
       </main>
       <footer className={styles.footer}>
-        <Footer />
+        <Footer themeName={"blueYellowBlack"}/>
       </footer>
     </div>
   );
