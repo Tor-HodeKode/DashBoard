@@ -60,7 +60,7 @@ const Header = () => {
               alt="Bruker"
               className="w-8 h-8 rounded-full mr-2"
             />
-            <span className="font-medium">Ola Nordmann</span>
+            <span className="font-medium"></span>
         </div>
       </div>
       <div className={styles.cCenter}></div>
