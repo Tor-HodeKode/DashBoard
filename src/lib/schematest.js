@@ -89,6 +89,7 @@ if (generatedResponse) {
 
 // Test with real API
 const apiAdress = "https://open.faceit.com/data/v4/games/pubg";
+const bearerKey = "c56d7ef0-ad98-495e-adeb-e2ed99f4110a";
 
 let fetched = false;
 
@@ -99,7 +100,7 @@ async function fetchData() {
       const response = await fetch(apiAdress, {
         method: "get",
         headers: new Headers({
-          Authorization: "Bearer bd8b8212-abb4-4470-8717-f59d43dd7508",
+          Authorization: `Bearer ${bearerKey}`,
         }),
       });
       if (!response.ok) {
@@ -137,4 +138,6 @@ const realApiResponse = compiledGamesSchema(fetchResult);
 
 if (realApiResponse) {
   console.log(fetchResult);
+} else {
+  console.log("Not valid Response");
 }
