@@ -23,10 +23,10 @@ export default function EloChart({ themeName }) {
     <div className={ theme.gradient + " rounded-xl shadow p-4"}>
       <h2 className={ theme.titleText + " font-semibold mb-2"}>{t("elo-history")}</h2>
       <ResponsiveContainer width="100%" height={200}>
-        <LineChart data={dummyEloData}>
+        <LineChart data={dummyEloData} className={"text-black [&_*:focus]:outline-none"}>
           <XAxis dataKey="name" stroke="currentColor" className={theme.icon}/>
           <YAxis stroke="currentColor" className={theme.icon}/>
-          <Tooltip />
+          <Tooltip/>
           <Line
             type="monotone"
             dataKey="elo"

@@ -36,6 +36,6 @@ export const themes = {
     hoverGradient: " hover:from-[#617aec] hover:to-[#3758eb] hover:text-[#fff] dark:hover:from-[#414345] dark:hover:to-[#232526] dark:hover:text-yellow-300",
     overlay: " bg-black/60 dark:bg-black/80 z-40",
     hover: " hover:bg-blue-400 hover:text-[#e4f0eah] dark:hover:bg-yellow-400 dark:hover:text-[#232526]",
-    icon: " text-[#fff] dark:text-[#FFD700]"
+    icon: " text-[#fff] dark:text-[#FFD700]",
   },
 };
