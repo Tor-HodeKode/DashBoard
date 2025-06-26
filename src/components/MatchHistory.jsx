@@ -10,7 +10,7 @@ export default function MatchHistory({ themeName }) {
     { date: "10.06", opponent: "Team Delta", map: "Nuke", result: t("win"), score: "16-8" },
   ];
   return (
-    <div className={ theme.gradient + " rounded-xl shadow p-4"}>
+    <div className={ theme.itemGradient + " rounded-xl shadow p-4"}>
       <h2 className={ theme.titleText + " font-semibold mb-2"}>{t("matchHistory")}</h2>
       <table className={ theme.mainText + " w-full"}>
         <thead>

@@ -31,7 +31,7 @@ export default function EloChart({ themeName }) {
   }
 
   return (
-    <div className={ theme.gradient + " rounded-xl shadow p-4"}>
+    <div className={ theme.itemGradient + " rounded-xl shadow p-4"}>
       <h2 className={ theme.titleText + " font-semibold mb-2"}>{t("elo-history")}</h2>
       <ResponsiveContainer width="100%" height={200}>
         <LineChart data={dummyEloData} className={styles.linechart}>
