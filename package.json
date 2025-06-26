@@ -29,6 +29,7 @@
     "react-grid-layout": "^1.5.1",
     "react-i18next": "^15.5.3",
     "react-router-dom": "^7.6.2",
+    "recharts": "^3.0.0",
     "swagger-schema-official": "^2.0.0-bab6bed",
     "tailwind-merge": "^3.3.1",
     "tailwindcss": "^4.1.10"
