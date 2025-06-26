@@ -1,36 +1,24 @@
-import { useEffect, useState } from "react";
 import { Button } from "@/components/ui/button";
 import path from "@/assets/FileManager.js";
-import { getStoredMode, setStoredMode } from "@/util/localStorage.js";
+import { setStoredMode } from "@/util/localStorage.js";
 import Language from "./ui/Language";
-import { btTypes } from "@/styles/globalStyle";
+import { btTypes, useIsDarkMode } from "@/styles/globalStyle";
 
 const [darkIcon, lightIcon] = path("icons", ["Dark.svg", "Light.svg"]);
 
 const Header = () => {
-  const [isDark, setIsDark] = useState(getStoredMode);
+  const isDark = useIsDarkMode();
 
-  useEffect(() => {
+  const toggleTheme = () => {
     const classList = document.documentElement.classList;
     if (isDark) {
-      classList.add("dark");
-    } else {
       classList.remove("dark");
+      setStoredMode(false);
+    } else {
+      classList.add("dark");
+      setStoredMode(true);
     }
-    setStoredMode(isDark);
-
-    const observer = new MutationObserver(() => {
-      setIsDark(classList.contains("dark"));
-    });
-    observer.observe(document.documentElement, {
-      attributes: true,
-      attributeFilter: ["class"],
-    });
-    return () => observer.disconnect();
-  }, [isDark]);
-
-  const toggleTheme = () => setIsDark((prev) => !prev);
-
+  }
   const themeIcon = isDark ? (
     <img src={lightIcon} alt="Light Mode" />
   ) : (

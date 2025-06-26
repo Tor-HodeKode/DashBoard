@@ -1,3 +1,19 @@
+import { useEffect, useState } from "react";
+
+// Detect dark mode
+export function useIsDarkMode() {
+  const [isDark, setIsDark] = useState(
+    typeof document !== "undefined" && document.documentElement.classList.contains("dark")
+  );
+  useEffect(() => {
+    const observer = new MutationObserver(() => {
+      setIsDark(document.documentElement.classList.contains("dark"));
+    });
+    observer.observe(document.documentElement, { attributes: true, attributeFilter: ["class"] });
+    return () => observer.disconnect();
+  }, []);
+  return isDark;
+}
 
 // Define tint style
 export const tints = {
@@ -37,5 +53,9 @@ export const themes = {
     overlay: " bg-black/60 dark:bg-black/80 z-40",
     hover: " hover:bg-blue-400 hover:text-[#e4f0eah] dark:hover:bg-yellow-400 dark:hover:text-[#232526]",
     icon: " text-[#fff] dark:text-[#FFD700]",
+    tooltipBg: "#fff",
+    tooltipBgDark: "#232526",
+    tooltipText: "#000",
+    tooltipTextDark: "#f0f0f0",
   },
 };
