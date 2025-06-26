@@ -4,7 +4,7 @@ import { btTypes } from "@/styles/globalStyle";
 
 const [ enIcon, noIcon ] = path("icons", [ "uk.svg", "no.svg" ]);
 
-const languageNames = { en: "EN", nb: "NO" };
+const languageNames = { en: "English", nb: "Norsk" };
 const languageIcons = { en: enIcon, nb: noIcon };
 
 function Language() {
