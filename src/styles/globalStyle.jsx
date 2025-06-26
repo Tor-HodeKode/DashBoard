@@ -1,4 +1,3 @@
-import { Hamburger } from "lucide-react";
 
 // Define tint style
 export const tints = {
