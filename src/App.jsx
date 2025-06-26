@@ -20,7 +20,7 @@ function App() {
         <Header />
       </header>
       <aside className={styles.sidebar}>
-        <SideBar />
+        <SideBar themeName="yellowBlack"/>
       </aside>
       <main className={styles.main}>
         <Outlet />
