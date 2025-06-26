@@ -27,7 +27,7 @@ export const btTypes = {
 }
 
 export const themes = {
-  yellowBlack: {
+  blueYellowBlack: {
     // bg-gradient-to-br from-[#232526] to-[#414345] dark:from-[#18181b] dark:to-[#27272a]
     gradient: " bg-gradient-to-br from-[#3758eb] to-[#617aec] dark:from-[#18181b] dark:to-[#27272a]",
     titleText: " text-[#b3f7eb] dark:text-yellow-400",
