@@ -31,7 +31,7 @@ export const themes = {
     // bg-gradient-to-br from-[#232526] to-[#414345] dark:from-[#18181b] dark:to-[#27272a]
     gradient: " bg-gradient-to-br from-[#3758eb] to-[#617aec] dark:from-[#18181b] dark:to-[#27272a]",
     titleText: " text-[#b3f7eb] dark:text-yellow-400",
-    bottomText: " text-[#cfcfcf] dark:text-yellow-300",
+    bottomText: " text-[#e7e5e5] dark:text-yellow-300",
     mainText: " text-[#fff] dark:text-yellow-100",
     border: " border-[#7a96f1] dark:border-yellow-400",
     hoverGradient: " hover:from-[#617aec] hover:to-[#3758eb] hover:text-[#fff] dark:hover:from-[#414345] dark:hover:to-[#232526] dark:hover:text-yellow-300",

@@ -1,21 +1,23 @@
-const dummyMatches = [
-  { date: "15.06", opponent: "Team Alpha", map: "Mirage", result: "Win", score: "16-10" },
-  { date: "13.06", opponent: "Team Bravo", map: "Inferno", result: "Loss", score: "12-16" },
-  { date: "10.06", opponent: "Team Delta", map: "Nuke", result: "Win", score: "16-8" },
-];
+import { useTranslation } from "react-i18next";
 
 export default function MatchHistory() {
+  const { t } = useTranslation("dashboard");
+  const dummyMatches = [
+    { date: "15.06", opponent: "Team Alpha", map: "Mirage", result: t("win"), score: "16-10" },
+    { date: "13.06", opponent: "Team Bravo", map: "Inferno", result: t("loss"), score: "12-16" },
+    { date: "10.06", opponent: "Team Delta", map: "Nuke", result: t("win"), score: "16-8" },
+  ];
   return (
     <div className="bg-gradient-to-br from-[#232526] to-[#414345] rounded-xl shadow p-4">
-      <h2 className="text-yellow-400 font-semibold mb-2">Matchhistorikk</h2>
+      <h2 className="text-yellow-400 font-semibold mb-2">{t("matchHistory")}</h2>
       <table className="w-full text-yellow-100">
         <thead>
           <tr>
-            <th className="text-left">Dato</th>
-            <th className="text-left">Motstander</th>
-            <th className="text-left">Kart</th>
-            <th className="text-left">Resultat</th>
-            <th className="text-left">Score</th>
+            <th className="text-left">{t("date")}</th>
+            <th className="text-left">{t("opponent")}</th>
+            <th className="text-left">{t("map")}</th>
+            <th className="text-left">{t("result")}</th>
+            <th className="text-left">{t("score")}</th>
           </tr>
         </thead>
         <tbody>

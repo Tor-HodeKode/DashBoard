@@ -39,7 +39,7 @@ export default function SideBar({ themeName }) {
   };
 
   const navItems = [
-    { name: texts.dashboard, to: "#" },
+    { name: texts.dashboard, to: "/dashboard" },
     { name: texts.myDashBoards, to: "#" },
     { name: texts.addApi, to: "#" },
     { name: texts.addWidget, to: "#" },
@@ -76,7 +76,11 @@ export default function SideBar({ themeName }) {
       )}
       {/* Sidebar */}
       <aside className={`${styles.sidebar} ${ open ? "translate-x-0" : "-translate-x-full" }`}>
-        <h1 className={styles.h1}>{texts.header}</h1>
+        <h1 className={styles.h1}>
+          <Link to="/home" onClick={() => setOpen(false)} className="outline-none">
+            {texts.header}
+          </Link>
+        </h1>
         <nav className={styles.navContainer}>
           {navItems.map(({ name, to }) => (
             <Link

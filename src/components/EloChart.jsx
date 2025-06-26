@@ -6,6 +6,7 @@ import {
   Tooltip,
   ResponsiveContainer,
 } from "recharts";
+import { useTranslation } from "react-i18next";
 
 const dummyEloData = [
   { name: "01.06", elo: 1800 },
@@ -15,9 +16,10 @@ const dummyEloData = [
 ];
 
 export default function EloChart() {
+  const { t } = useTranslation("dashboard");
   return (
     <div className="bg-gradient-to-br from-[#232526] to-[#414345] rounded-xl shadow p-4">
-      <h2 className="text-yellow-400 font-semibold mb-2">Elo-historikk</h2>
+      <h2 className="text-yellow-400 font-semibold mb-2">{t("elo-history")}</h2>
       <ResponsiveContainer width="100%" height={200}>
         <LineChart data={dummyEloData}>
           <XAxis dataKey="name" stroke="#FFD700" />

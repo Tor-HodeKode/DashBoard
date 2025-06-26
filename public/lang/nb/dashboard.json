@@ -1,0 +1,12 @@
+{
+    "elo-history": "Elo-historikk",
+    "matchHistory": "Matchhistorikk",
+    "date": "Dato",
+    "opponent": "Motstander",
+    "map": "Kart",
+    "result": "Resultat",
+    "score": "Poeng",
+    "win": "Vinn",
+    "loss": "Tap",
+    "winRate": "Vinnrate"
+}
