@@ -15,7 +15,7 @@ const Footer = () => (
       }
     `}</style>
     <footer
-      className={`${themes.yellowBlack.gradient} ${themes.yellowBlack.textStandard} ${themes.yellowBlack.border} text-center text-sm`}
+      className={`${themes.blueYellowBlack.gradient} ${themes.blueYellowBlack.textStandard} ${themes.blueYellowBlack.border} text-center text-sm`}
     >
       test
     </footer>
