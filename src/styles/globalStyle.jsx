@@ -1,10 +1,25 @@
+import { getStoredMode, setStoredMode } from "@/util/localStorage";
 import { useEffect, useState } from "react";
 
 // Detect dark mode
 export function useIsDarkMode() {
-  const [isDark, setIsDark] = useState(
-    typeof document !== "undefined" && document.documentElement.classList.contains("dark")
-  );
+  const [isDark, setIsDark] = useState(() => {
+    if (typeof document !== "undefined") {
+      // Check if the document has the 'dark' class
+      if (document.documentElement.classList.contains("dark")) {
+        return true;
+      }
+      // Check stored mode in localStorage
+      const storedMode = getStoredMode();
+      if (storedMode === "dark") {
+        document.documentElement.classList.add("dark");
+        return true;
+      }
+    }
+    return false;
+  });
+  
+  // Listen for changes in the document's class attribute
   useEffect(() => {
     const observer = new MutationObserver(() => {
       setIsDark(document.documentElement.classList.contains("dark"));
@@ -13,6 +28,41 @@ export function useIsDarkMode() {
     return () => observer.disconnect();
   }, []);
   return isDark;
+}
+
+// Initialize theme based on current theme mode
+export function iniTheme() {
+  const storedMode = getStoredMode();
+  const htmlClassList = document.documentElement.classList;
+  if (storedMode === "dark") {
+    htmlClassList.add("dark");
+  } else if (storedMode === "light") {
+    htmlClassList.remove("dark");
+  }
+}
+
+// Toggle theme function
+export function toggleThemeMode(isDark) {
+  const htmlClassList = document.documentElement.classList;
+  if (isDark) {
+    htmlClassList.remove("dark");
+    setStoredMode("light");
+  } else {
+    htmlClassList.add("dark");
+    setStoredMode("dark");
+  }
+}
+
+// Set theme function
+export function setThemeMode(mode) {
+  const htmlClassList = document.documentElement.classList;
+  if (mode === "dark") {
+    htmlClassList.add("dark");
+    setStoredMode("dark");
+  } else {
+    htmlClassList.remove("dark");
+    setStoredMode("light");
+  }
 }
 
 // Define tint style
@@ -36,11 +86,14 @@ export const tintsDark = {
 
 };
 
+// Define button types
 export const btTypes = {
   standard: " px-4 py-2 rounded w-auto cursor-pointer",
   scale: " transition-transform duration-150 hover:scale-110"
 }
 
+// Define custom themes
+// This is used in the theme switcher and for styling components
 export const themes = {
   blueYellowBlack: {
     gradient: " bg-gradient-to-br from-[#3758eb] to-[#617aec] dark:from-[#18181b] dark:to-[#27272a]",

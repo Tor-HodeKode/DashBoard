@@ -1,9 +1,9 @@
 import { useEffect } from "react";
 import { Button } from "@/components/ui/button";
 import path from "@/assets/FileManager.js";
-import { setStoredMode, getStoredMode } from "@/util/localStorage.js";
+
 import Language from "./ui/Language";
-import { btTypes, useIsDarkMode } from "@/styles/globalStyle";
+import { btTypes, iniTheme, useIsDarkMode, toggleThemeMode } from "@/styles/globalStyle";
 
 const [darkIcon, lightIcon] = path("icons", ["Dark.svg", "Light.svg"]);
 
@@ -11,25 +11,9 @@ const Header = () => {
   const isDark = useIsDarkMode();
 
   useEffect(() => {
-    const storedMode = getStoredMode();
-    const htmlClassList = document.documentElement.classList;
-    if (storedMode === "dark") {
-      htmlClassList.add("dark");
-    } else if (storedMode === "light") {
-      htmlClassList.remove("dark");
-    }
+    iniTheme();
   }, []);
 
-  const toggleTheme = () => {
-    const htmlClassList = document.documentElement.classList;
-    if (isDark) {
-      htmlClassList.remove("dark");
-      setStoredMode("light");
-    } else {
-      htmlClassList.add("dark");
-      setStoredMode("dark");
-    }
-  }
   const themeIcon = isDark ? (
     <img src={lightIcon} alt="Light Mode" />
   ) : (
@@ -73,7 +57,7 @@ const Header = () => {
             🔔
           </span>
         </button>
-        <Button className={styles.bTheme} onClick={toggleTheme}>
+        <Button className={styles.bTheme} onClick={() => toggleThemeMode(isDark)}>
           {themeIcon}
         </Button>
       </div>
