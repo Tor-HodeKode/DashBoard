@@ -5,10 +5,10 @@ import { useTranslation } from "react-i18next";
 import "@/assets/i18n";
 import { useWidgets } from "./ImpWidget";
 
-export default function SideBar({ themeName}) {
+export default function SideBar({ themeName }) {
   const [open, setOpen] = useState(false);
   const { t } = useTranslation("sidebar");
-  const theme = themes[themeName];
+  const theme = themes[themeName] || themes.default;
   const { setWidgets } = useWidgets();
 
   const user = "bruker@email.com";

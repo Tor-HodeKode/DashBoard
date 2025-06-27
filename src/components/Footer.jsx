@@ -1,9 +1,8 @@
 import React from "react";
 import { themes, cn } from "@/styles/globalStyle";
 
-const Footer = ({ themeName = "dark" }) => {
-  // Bruk "dark" som fallback hvis themeName mangler eller ikke finnes i themes
-  const theme = themes[themeName] || themes["dark"];
+const Footer = ({ themeName }) => {
+  const theme = themes[themeName] || themes.default;
 
   const styles = {
     container: cn(

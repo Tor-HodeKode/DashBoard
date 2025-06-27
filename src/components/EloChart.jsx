@@ -9,13 +9,13 @@ import {
 } from "recharts";
 import { fetchPlayer, fetchEloHistory } from "../lib/faceItApi";
 import { useTranslation } from "react-i18next";
-import { themes, useIsDarkMode, cap, cn } from "../styles/globalStyle";
+import { themes, useIsDarkMode, cap, cn, getTooltipStyle } from "../styles/globalStyle";
 
 export default function EloChart({ nickname, themeName }) {
   const [eloData, setEloData] = useState([]);
   const [error, setError] = useState(null);
   const { t } = useTranslation(["dashboard", "other"]);
-  const theme = themes[themeName];
+  const theme = themes[themeName] || themes.default;
   const isDark = useIsDarkMode();
 
   useEffect(() => {
@@ -42,11 +42,8 @@ export default function EloChart({ nickname, themeName }) {
   const styles = {
     linechart: "[&_*:focus]:outline-none",
   }
-  const tooltip = {
-    background: isDark ? theme.tooltipBgDark : theme.tooltipBg,
-    color: isDark ? theme.tooltipTextDark : theme.tooltipText,
-    borderRadius: "5px",
-  }
+  const tooltip = getTooltipStyle(isDark, theme.tooltip);
+  
   return (
     <div className={cn(theme.itemGradient, "rounded-xl shadow p-4")}>
       <h2 className={cn(theme.titleText, "font-semibold mb-2")}>{cap(t("elo-history"))}</h2>

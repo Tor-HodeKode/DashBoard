@@ -7,7 +7,7 @@ export default function MatchHistory({ nickname, game = "cs2", themeName }) {
   const [matches, setMatches] = useState([]);
   const [error, setError] = useState(null);
   const { t } = useTranslation(["dashboard", "other"]);
-  const theme = themes[themeName];
+  const theme = themes[themeName] || themes.default;
 
   useEffect(() => {
     async function getMatches() {

@@ -95,7 +95,6 @@ export const btTypes = {
 }
 // ----------------------------------------------------------------
 // ----------------------------------------------------------------
-
 // Capitalize the first letter of a string
 export function cap(str) {
   return str && str[0].toUpperCase() + str.slice(1);
@@ -117,10 +116,49 @@ export function low(str) {
 export function cn(...classes) {
   return classes.filter(Boolean).join(' ');
 }
+// ----------------------------------------------------------------
+// ----------------------------------------------------------------
+// Helper function to get tooltip styles based on dark mode
+export function getTooltipStyle(isDark, tooltipConfig) {
+  return {
+    background: isDark ? tooltipConfig.bgDark : tooltipConfig.bg,
+    color: isDark ? tooltipConfig.textDark : tooltipConfig.text,
+    borderRadius: "5px",
+  };
+}
 
+// Common tooltip configurations that can be reused across themes
+export const tooltipStyles = {
+  default: {
+    bg: "#fff",
+    bgDark: "#232526", 
+    text: "#000",
+    textDark: "#f0f0f0",
+  },
+};
+// ----------------------------------------------------------------
+// ----------------------------------------------------------------
 // Define custom themes
 // This is used in the theme switcher and for styling components
 export const themes = {
+  // default theme for fallback
+  default: {
+    gradient: "bg-gradient-to-br from-gray-100 to-gray-200 dark:from-gray-800 dark:to-gray-900",
+    itemGradient: "bg-gradient-to-br from-gray-50 to-gray-100 dark:from-gray-700 dark:to-gray-800",
+    titleText: "text-gray-800 dark:text-gray-200",
+    bottomText: "text-gray-600 dark:text-gray-400",
+    mainText: "text-gray-900 dark:text-gray-100",
+    border: "border-gray-300 dark:border-gray-600",
+    hoverGradient: "hover:from-gray-200 hover:to-gray-100 hover:text-gray-900 dark:hover:from-gray-600 dark:hover:to-gray-700 dark:hover:text-gray-100",
+    overlay: "bg-black/50 dark:bg-black/70 z-40",
+    hover: "hover:bg-gray-200 hover:text-gray-900 dark:hover:bg-gray-700 dark:hover:text-gray-100",
+    icon: "text-gray-700 dark:text-gray-300",
+
+    // Use shared tooltip configuration
+    tooltip: tooltipStyles.default,
+  }
+  ,
+  // blue theme on light mode, yellow black theme on dark mode
   blueYellowBlack: {
     gradient: "bg-gradient-to-br from-[#3758eb] to-[#617aec] dark:from-[#18181b] dark:to-[#27272a]",
     itemGradient: "bg-gradient-to-br from-[#3758eb] to-[#617aec] dark:from-[#232526] dark:to-[#414345]",
@@ -133,11 +171,8 @@ export const themes = {
     hover: "hover:bg-blue-400 hover:text-[#e4f0eah] dark:hover:bg-yellow-400 dark:hover:text-[#232526]",
     icon: "text-[#fff] dark:text-[#FFD700]",
     
-    // this tooltip styles are used in the Tooltip component that does not support tailwind classes
-    tooltipBg: "#fff",
-    tooltipBgDark: "#232526",
-    tooltipText: "#000",
-    tooltipTextDark: "#f0f0f0",
+    // Use shared tooltip configuration
+    tooltip: tooltipStyles.default,
   },
 };
 
