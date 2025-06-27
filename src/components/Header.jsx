@@ -1,36 +1,35 @@
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 import { Button } from "@/components/ui/button";
 import path from "@/assets/FileManager.js";
-import { getStoredMode, setStoredMode } from "@/util/localStorage.js";
+import { setStoredMode, getStoredMode } from "@/util/localStorage.js";
 import Language from "./ui/Language";
-import { btTypes } from "@/styles/globalStyle";
+import { btTypes, useIsDarkMode } from "@/styles/globalStyle";
 
 const [darkIcon, lightIcon] = path("icons", ["Dark.svg", "Light.svg"]);
 
 const Header = () => {
-  const [isDark, setIsDark] = useState(getStoredMode);
+  const isDark = useIsDarkMode();
 
   useEffect(() => {
-    const classList = document.documentElement.classList;
-    if (isDark) {
-      classList.add("dark");
-    } else {
-      classList.remove("dark");
+    const storedMode = getStoredMode();
+    const htmlClassList = document.documentElement.classList;
+    if (storedMode === "dark") {
+      htmlClassList.add("dark");
+    } else if (storedMode === "light") {
+      htmlClassList.remove("dark");
     }
-    setStoredMode(isDark);
+  }, []);
 
-    const observer = new MutationObserver(() => {
-      setIsDark(classList.contains("dark"));
-    });
-    observer.observe(document.documentElement, {
-      attributes: true,
-      attributeFilter: ["class"],
-    });
-    return () => observer.disconnect();
-  }, [isDark]);
-
-  const toggleTheme = () => setIsDark((prev) => !prev);
-
+  const toggleTheme = () => {
+    const htmlClassList = document.documentElement.classList;
+    if (isDark) {
+      htmlClassList.remove("dark");
+      setStoredMode("light");
+    } else {
+      htmlClassList.add("dark");
+      setStoredMode("dark");
+    }
+  }
   const themeIcon = isDark ? (
     <img src={lightIcon} alt="Light Mode" />
   ) : (
@@ -44,7 +43,7 @@ const Header = () => {
     subLeft: "flex items-center mx-auto",
     cCenter: "flex items-center justify-center",
     cRight: "flex items-center justify-end",
-    bTheme: "py-5 px-1 outline-none border-0 rounded-full bg-transparent shadow-none hover:cursor-pointer dark:hover:bg-[#8b8b8b89] transition-colors duration-300"
+    bTheme: "py-5 px-1 outline-none border-0 rounded-full bg-transparent shadow-none hover:cursor-pointer hover:bg-[#e0e0e087] dark:hover:bg-[#8b8b8b89] transition-colors duration-300"
     + " " + scale,
     lang: "flex items-center justify-end mr-7",
     bell: "mr-4 cursor-pointer outline-none" + " " + scale,

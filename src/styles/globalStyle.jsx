@@ -1,4 +1,19 @@
-import { Hamburger } from "lucide-react";
+import { useEffect, useState } from "react";
+
+// Detect dark mode
+export function useIsDarkMode() {
+  const [isDark, setIsDark] = useState(
+    typeof document !== "undefined" && document.documentElement.classList.contains("dark")
+  );
+  useEffect(() => {
+    const observer = new MutationObserver(() => {
+      setIsDark(document.documentElement.classList.contains("dark"));
+    });
+    observer.observe(document.documentElement, { attributes: true, attributeFilter: ["class"] });
+    return () => observer.disconnect();
+  }, []);
+  return isDark;
+}
 
 // Define tint style
 export const tints = {
@@ -27,15 +42,22 @@ export const btTypes = {
 }
 
 export const themes = {
-  yellowBlack: {
-    gradient: " bg-gradient-to-br from-[#232526] to-[#414345]",
-    darkGradient: " dark:from-[#18181b] dark:to-[#27272a]", 
-    textStandard: " text-yellow-400",
-    textDim: " text-yellow-300",
-    textLight: " text-yellow-100",
-    border: " border-yellow-400",
-    hoverGradient: " hover:from-[#414345] hover:to-[#232526] hover:text-yellow-300",
+  blueYellowBlack: {
+    gradient: " bg-gradient-to-br from-[#3758eb] to-[#617aec] dark:from-[#18181b] dark:to-[#27272a]",
+    itemGradient: " bg-gradient-to-br from-[#3758eb] to-[#617aec] dark:from-[#232526] dark:to-[#414345]",
+    titleText: " text-[#b3f7eb] dark:text-yellow-400",
+    bottomText: " text-[#e7e5e5] dark:text-yellow-300",
+    mainText: " text-[#fff] dark:text-yellow-100",
+    border: " border-[#7a96f1] dark:border-yellow-400",
+    hoverGradient: " hover:from-[#617aec] hover:to-[#3758eb] hover:text-[#fff] dark:hover:from-[#414345] dark:hover:to-[#232526] dark:hover:text-yellow-300",
     overlay: " bg-black/60 dark:bg-black/80 z-40",
-    hover: " hover:bg-yellow-400 hover:text-[#232526]"
+    hover: " hover:bg-blue-400 hover:text-[#e4f0eah] dark:hover:bg-yellow-400 dark:hover:text-[#232526]",
+    icon: " text-[#fff] dark:text-[#FFD700]",
+    
+    // this tooltip styles are used in the Tooltip component that does not support tailwind classes
+    tooltipBg: "#fff",
+    tooltipBgDark: "#232526",
+    tooltipText: "#000",
+    tooltipTextDark: "#f0f0f0",
   },
 };
