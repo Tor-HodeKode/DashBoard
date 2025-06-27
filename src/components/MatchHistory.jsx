@@ -31,7 +31,7 @@ export default function MatchHistory({ nickname, game = "cs2", themeName }) {
   }, [nickname, game]);
 
   if (error) return <div className="text-red-500">{error}</div>;
-  if (!matches.length) return <div>{cap(t("loading"))} {t("matchHistory")}...</div>;
+  if (!matches.length) return <div>{cap(t("other:loading"))} {t("matchHistory")}...</div>;
 
   return (
     <div className={ theme.itemGradient + " rounded-xl shadow p-4"}>

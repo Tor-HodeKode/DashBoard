@@ -37,7 +37,7 @@ export default function EloChart({ nickname, themeName }) {
   }, [nickname]);
 
   if (error) return <div className="text-red-500">{error}</div>;
-  if (!eloData.length) return <div>{cap(t("loading"))} {t("elo-history")}...</div>;
+  if (!eloData.length) return <div>{cap(t("other:loading"))} {t("elo-history")}...</div>;
 
   const styles = {
     linechart: "[&_*:focus]:outline-none",
