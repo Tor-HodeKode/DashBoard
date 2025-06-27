@@ -9,7 +9,7 @@ import {
 } from "recharts";
 import { fetchPlayer, fetchEloHistory } from "../lib/faceItApi";
 import { useTranslation } from "react-i18next";
-import { themes, useIsDarkMode, cap } from "../styles/globalStyle";
+import { themes, useIsDarkMode, cap, cn } from "../styles/globalStyle";
 
 export default function EloChart({ nickname, themeName }) {
   const [eloData, setEloData] = useState([]);
@@ -48,8 +48,8 @@ export default function EloChart({ nickname, themeName }) {
     borderRadius: "5px",
   }
   return (
-    <div className={ theme.itemGradient + " rounded-xl shadow p-4"}>
-      <h2 className={ theme.titleText + " font-semibold mb-2"}>{cap(t("elo-history"))}</h2>
+    <div className={cn(theme.itemGradient, "rounded-xl shadow p-4")}>
+      <h2 className={cn(theme.titleText, "font-semibold mb-2")}>{cap(t("elo-history"))}</h2>
       <ResponsiveContainer width="100%" height={200}>
         <LineChart data={eloData} className={styles.linechart}>
           <XAxis dataKey="name" stroke="currentColor" className={theme.icon} />

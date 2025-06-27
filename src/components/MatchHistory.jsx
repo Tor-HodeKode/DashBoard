@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { fetchPlayer, fetchPlayerMatches } from "../lib/faceItApi";
 import { useTranslation } from "react-i18next";
-import { cap, themes } from "../styles/globalStyle";
+import { cap, themes, cn } from "../styles/globalStyle";
 
 export default function MatchHistory({ nickname, game = "cs2", themeName }) {
   const [matches, setMatches] = useState([]);
@@ -19,7 +19,7 @@ export default function MatchHistory({ nickname, game = "cs2", themeName }) {
           date: new Date(item.started_at * 1000).toLocaleDateString(),
           opponent: item.teams?.faction2?.nickname || "N/A",
           map: item.csgo_map || item.map || "N/A",
-          result: item.results?.winner === "faction1" ? "Win" : "Loss",
+          result: item.results?.winner === "faction1" ? cap(t("win")) : cap(t("loss")),
           score: item.results?.score || "N/A",
         }));
         setMatches(matchList);
@@ -34,9 +34,9 @@ export default function MatchHistory({ nickname, game = "cs2", themeName }) {
   if (!matches.length) return <div>{cap(t("other:loading"))} {t("matchHistory")}...</div>;
 
   return (
-    <div className={ theme.itemGradient + " rounded-xl shadow p-4"}>
-      <h2 className={ theme.titleText + " font-semibold mb-2"}>{cap(t("matchHistory"))}</h2>
-      <table className={"w-full" + theme.mainText}>
+    <div className={cn(theme.itemGradient, "rounded-xl shadow p-4")}>
+      <h2 className={cn(theme.titleText, "font-semibold mb-2")}>{cap(t("matchHistory"))}</h2>
+      <table className={cn("w-full", theme.mainText)}>
         <thead>
           <tr>
             <th className="text-left">{cap(t("date"))}</th>
@@ -48,7 +48,7 @@ export default function MatchHistory({ nickname, game = "cs2", themeName }) {
         </thead>
         <tbody>
           {matches.map((match, idx) => (
-            <tr key={idx} className={"border-t" + theme.border}>
+            <tr key={idx} className={cn("border-t", theme.border)}>
               <td>{match.date}</td>
               <td>{match.opponent}</td>
               <td>{match.map}</td>

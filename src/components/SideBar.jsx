@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
-import { themes } from "@/styles/globalStyle";
+import { themes, cn } from "@/styles/globalStyle";
 import { useTranslation } from "react-i18next";
 import "@/assets/i18n";
 import { useWidgets } from "./ImpWidget";
@@ -42,25 +42,28 @@ export default function SideBar({ themeName}) {
 
   const styles = {
     sidebarContainer: "w-auto [&_*:focus]:outline-none",
-    hamburgerBtn:
-      "fixed top-4 left-4 z-50 p-2 rounded-full shadow-lg focus:outline-none flex flex-col justify-center items-center w-12 h-12 border-2 transition cursor-pointer " +
-      theme.gradient +
-      theme.mainText +
-      theme.border +
-      theme.hoverGradient,
-    overlay: "fixed inset-0 z-40 " + theme.overlay,
-    sidebar:
-      "fixed top-0 left-0 h-full w-72 flex flex-col p-6 space-y-4 z-50 transform transition-transform duration-300 shadow-2xl border-r-2 " +
-      theme.gradient +
-      theme.darkGradient +
-      theme.mainText +
+    hamburgerBtn: cn(
+      "fixed top-4 left-4 z-50 p-2 rounded-full shadow-lg focus:outline-none flex flex-col justify-center items-center w-12 h-12 border-2 transition cursor-pointer",
+      theme.gradient,
+      theme.mainText,
       theme.border,
+      theme.hoverGradient
+    ),
+    overlay: cn("fixed inset-0 z-40", theme.overlay),
+    sidebar: cn(
+      "fixed top-0 left-0 h-full w-72 flex flex-col p-6 space-y-4 z-50 transform transition-transform duration-300 shadow-2xl border-r-2",
+      theme.gradient,
+      theme.darkGradient,
+      theme.mainText,
+      theme.border
+    ),
     navContainer: "flex flex-col gap-3",
-    navLink: "p-3 rounded-lg transition font-semibold cursor-pointer" + theme.hover,
-    h1:
-      "text-3xl font-extrabold mb-8 tracking-wide drop-shadow cursor-pointer" +
-      theme.titleText,
-    bottomText: "mt-auto text-sm italic text-center" + theme.bottomText,
+    navLink: cn("p-3 rounded-lg transition font-semibold cursor-pointer", theme.hover),
+    h1: cn(
+      "text-3xl font-extrabold mb-8 tracking-wide drop-shadow cursor-pointer",
+      theme.titleText
+    ),
+    bottomText: cn("mt-auto text-sm italic text-center", theme.bottomText),
   };
 
   // SVG Icons
@@ -83,7 +86,7 @@ export default function SideBar({ themeName}) {
     <div className={styles.sidebarContainer}>
       {/* Hamburger / Cross button */}
       <button
-        className={styles.hamburgerBtn + theme.icon}
+        className={cn(styles.hamburgerBtn, theme.icon)}
         onClick={() => setOpen(!open)}
         aria-label={open ? texts.closeMenu : texts.openMenu}
       >

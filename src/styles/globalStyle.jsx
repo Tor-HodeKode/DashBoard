@@ -112,22 +112,26 @@ export function capW(str) {
 export function low(str) {
   return str ? str.toLowerCase() : str;
 }
-// ----------------------------------------------------------------
-// ----------------------------------------------------------------
+
+// Utility function to concatenate class names with spaces
+export function cn(...classes) {
+  return classes.filter(Boolean).join(' ');
+}
+
 // Define custom themes
 // This is used in the theme switcher and for styling components
 export const themes = {
   blueYellowBlack: {
-    gradient: " bg-gradient-to-br from-[#3758eb] to-[#617aec] dark:from-[#18181b] dark:to-[#27272a]",
-    itemGradient: " bg-gradient-to-br from-[#3758eb] to-[#617aec] dark:from-[#232526] dark:to-[#414345]",
-    titleText: " text-[#b3f7eb] dark:text-yellow-400",
-    bottomText: " text-[#e7e5e5] dark:text-yellow-300",
-    mainText: " text-[#fff] dark:text-yellow-100",
-    border: " border-[#7a96f1] dark:border-yellow-400",
-    hoverGradient: " hover:from-[#617aec] hover:to-[#3758eb] hover:text-[#fff] dark:hover:from-[#414345] dark:hover:to-[#232526] dark:hover:text-yellow-300",
-    overlay: " bg-black/60 dark:bg-black/80 z-40",
-    hover: " hover:bg-blue-400 hover:text-[#e4f0eah] dark:hover:bg-yellow-400 dark:hover:text-[#232526]",
-    icon: " text-[#fff] dark:text-[#FFD700]",
+    gradient: "bg-gradient-to-br from-[#3758eb] to-[#617aec] dark:from-[#18181b] dark:to-[#27272a]",
+    itemGradient: "bg-gradient-to-br from-[#3758eb] to-[#617aec] dark:from-[#232526] dark:to-[#414345]",
+    titleText: "text-[#b3f7eb] dark:text-yellow-400",
+    bottomText: "text-[#e7e5e5] dark:text-yellow-300",
+    mainText: "text-[#fff] dark:text-yellow-100",
+    border: "border-[#7a96f1] dark:border-yellow-400",
+    hoverGradient: "hover:from-[#617aec] hover:to-[#3758eb] hover:text-[#fff] dark:hover:from-[#414345] dark:hover:to-[#232526] dark:hover:text-yellow-300",
+    overlay: "bg-black/60 dark:bg-black/80 z-40",
+    hover: "hover:bg-blue-400 hover:text-[#e4f0eah] dark:hover:bg-yellow-400 dark:hover:text-[#232526]",
+    icon: "text-[#fff] dark:text-[#FFD700]",
     
     // this tooltip styles are used in the Tooltip component that does not support tailwind classes
     tooltipBg: "#fff",
