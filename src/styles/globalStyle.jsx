@@ -1,6 +1,7 @@
 import { getStoredMode, setStoredMode } from "@/util/localStorage";
 import { useEffect, useState } from "react";
 
+// ----------------------------------------------------------------
 // Detect dark mode
 export function useIsDarkMode() {
   const [isDark, setIsDark] = useState(() => {
@@ -64,7 +65,8 @@ export function setThemeMode(mode) {
     setStoredMode("light");
   }
 }
-
+// ----------------------------------------------------------------
+// ----------------------------------------------------------------
 // Define tint style
 export const tints = {
   blue: " bg-[#3758eb] text-white hover:bg-[#1c41e6]",
@@ -91,7 +93,27 @@ export const btTypes = {
   standard: " px-4 py-2 rounded w-auto cursor-pointer",
   scale: " transition-transform duration-150 hover:scale-110"
 }
+// ----------------------------------------------------------------
+// ----------------------------------------------------------------
 
+// Capitalize the first letter of a string
+export function cap(str) {
+  return str && str[0].toUpperCase() + str.slice(1);
+}
+// Capitalize the first letter of each word in a string
+export function capW(str) {
+  return str ? str
+    .split(" ")
+    .map(word => word.charAt(0).toUpperCase() + word.slice(1))
+    .join(" ")
+    : str;
+}
+// Convert the entire string to lowercase
+export function low(str) {
+  return str ? str.toLowerCase() : str;
+}
+// ----------------------------------------------------------------
+// ----------------------------------------------------------------
 // Define custom themes
 // This is used in the theme switcher and for styling components
 export const themes = {
@@ -114,3 +136,6 @@ export const themes = {
     tooltipTextDark: "#f0f0f0",
   },
 };
+
+// ----------------------------------------------------------------
+// ----------------------------------------------------------------

@@ -8,10 +8,15 @@ import {
   ResponsiveContainer,
 } from "recharts";
 import { fetchPlayer, fetchEloHistory } from "../lib/faceItApi";
+import { useTranslation } from "react-i18next";
+import { themes, useIsDarkMode, cap } from "../styles/globalStyle";
 
-export default function EloChart({ nickname }) {
+export default function EloChart({ nickname, themeName }) {
   const [eloData, setEloData] = useState([]);
   const [error, setError] = useState(null);
+  const { t } = useTranslation(["dashboard", "other"]);
+  const theme = themes[themeName];
+  const isDark = useIsDarkMode();
 
   useEffect(() => {
     async function getElo() {
@@ -32,21 +37,30 @@ export default function EloChart({ nickname }) {
   }, [nickname]);
 
   if (error) return <div className="text-red-500">{error}</div>;
-  if (!eloData.length) return <div>Laster ELO-historikk...</div>;
+  if (!eloData.length) return <div>{cap(t("loading"))} {t("elo-history")}...</div>;
 
+  const styles = {
+    linechart: "[&_*:focus]:outline-none",
+  }
+  const tooltip = {
+    background: isDark ? theme.tooltipBgDark : theme.tooltipBg,
+    color: isDark ? theme.tooltipTextDark : theme.tooltipText,
+    borderRadius: "5px",
+  }
   return (
-    <div className="bg-gradient-to-br from-[#232526] to-[#414345] rounded-xl shadow p-4">
-      <h2 className="text-yellow-400 font-semibold mb-2">Elo-historikk</h2>
+    <div className={ theme.itemGradient + " rounded-xl shadow p-4"}>
+      <h2 className={ theme.titleText + " font-semibold mb-2"}>{cap(t("elo-history"))}</h2>
       <ResponsiveContainer width="100%" height={200}>
-        <LineChart data={eloData}>
-          <XAxis dataKey="name" stroke="#FFD700" />
-          <YAxis stroke="#FFD700" />
-          <Tooltip />
+        <LineChart data={eloData} className={styles.linechart}>
+          <XAxis dataKey="name" stroke="currentColor" className={theme.icon} />
+          <YAxis stroke="currentColor" className={theme.icon} />
+          <Tooltip contentStyle={tooltip}/>
           <Line
             type="monotone"
             dataKey="elo"
-            stroke="#FFD700"
+            stroke="currentColor"
             strokeWidth={3}
+            className={theme.icon}
           />
         </LineChart>
       </ResponsiveContainer>

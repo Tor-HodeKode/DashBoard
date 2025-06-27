@@ -1,12 +1,12 @@
 {
-    "elo-history": "Elo-history",
-    "matchHistory": "Match History",
-    "date": "Date",
-    "opponent": "Opponent",
-    "map": "Map",
-    "result": "Result",
-    "score": "Score",
-    "win": "Win",
-    "loss": "Loss",
-    "winRate": "Winrate"
+    "elo-history": "elo-history",
+    "matchHistory": "match history",
+    "date": "date",
+    "opponent": "opponent",
+    "map": "map",
+    "result": "result",
+    "score": "score",
+    "win": "win",
+    "loss": "loss",
+    "winRate": "winrate"
 }

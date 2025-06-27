@@ -1,9 +1,13 @@
 import React, { useEffect, useState } from "react";
 import { fetchPlayer, fetchPlayerMatches } from "../lib/faceItApi";
+import { useTranslation } from "react-i18next";
+import { cap, themes } from "../styles/globalStyle";
 
-export default function MatchHistory({ nickname, game = "cs2" }) {
+export default function MatchHistory({ nickname, game = "cs2", themeName }) {
   const [matches, setMatches] = useState([]);
   const [error, setError] = useState(null);
+  const { t } = useTranslation(["dashboard", "other"]);
+  const theme = themes[themeName];
 
   useEffect(() => {
     async function getMatches() {
@@ -27,30 +31,30 @@ export default function MatchHistory({ nickname, game = "cs2" }) {
   }, [nickname, game]);
 
   if (error) return <div className="text-red-500">{error}</div>;
-  if (!matches.length) return <div>Laster matchhistorikk...</div>;
+  if (!matches.length) return <div>{cap(t("loading"))} {t("matchHistory")}...</div>;
 
   return (
-    <div className="bg-gradient-to-br from-[#232526] to-[#414345] rounded-xl shadow p-4">
-      <h2 className="text-yellow-400 font-semibold mb-2">Matchhistorikk</h2>
-      <table className="w-full text-yellow-100">
+    <div className={ theme.itemGradient + " rounded-xl shadow p-4"}>
+      <h2 className={ theme.titleText + " font-semibold mb-2"}>{cap(t("matchHistory"))}</h2>
+      <table className={"w-full" + theme.mainText}>
         <thead>
           <tr>
-            <th className="text-left">Dato</th>
-            <th className="text-left">Motstander</th>
-            <th className="text-left">Kart</th>
-            <th className="text-left">Resultat</th>
-            <th className="text-left">Score</th>
+            <th className="text-left">{cap(t("date"))}</th>
+            <th className="text-left">{cap(t("opponent"))}</th>
+            <th className="text-left">{cap(t("map"))}</th>
+            <th className="text-left">{cap(t("result"))}</th>
+            <th className="text-left">{cap(t("score"))}</th>
           </tr>
         </thead>
         <tbody>
           {matches.map((match, idx) => (
-            <tr key={idx} className="border-t border-yellow-900">
+            <tr key={idx} className={"border-t" + theme.border}>
               <td>{match.date}</td>
               <td>{match.opponent}</td>
               <td>{match.map}</td>
               <td
                 className={
-                  match.result === "Win" ? "text-green-400" : "text-red-400"
+                  match.result === cap(t("win")) ? "text-green-400" : "text-red-400"
                 }
               >
                 {match.result}
