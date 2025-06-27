@@ -8,7 +8,7 @@ import { useWidgets } from "./ImpWidget";
 export default function SideBar() {
   const [open, setOpen] = useState(false);
   const { t } = useTranslation("sidebar");
-  const yb = themes.yellowBlack;
+  const yb = themes.blueYellowBlack;
   const { setWidgets } = useWidgets();
 
   const user = "bruker@email.com";

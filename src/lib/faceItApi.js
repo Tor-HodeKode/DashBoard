@@ -91,3 +91,20 @@ export async function fetchLadder(ladderId) {
   if (!res.ok) throw new Error("Kunne ikke hente ladder");
   return await res.json();
 }
+
+// 10. ELO-historikk for spiller (basert på matchhistorikk)
+export async function fetchEloHistory(playerId, game = "cs2", limit = 20) {
+  const history = await fetchPlayerMatches(playerId, game, 0, limit);
+
+  if (!history.items || history.items.length === 0) {
+    throw new Error("Fant ikke ELO-data");
+  }
+
+  // Eksempel på hvordan data kan se ut (logg og sjekk feltene hvis nødvendig)
+  return {
+    items: history.items.map((match) => ({
+      started_at: match.started_at,
+      elo: match.elo ?? match.elo_after ?? 0, // juster etter hva som faktisk finnes
+    })),
+  };
+}

@@ -29,7 +29,7 @@ function App() {
           <Outlet />
         </main>
         <footer className={styles.footer}>
-          <Footer />
+            <Footer themeName="blueYellowBlack" />
         </footer>
       </div>
     </WidgetProvider>
