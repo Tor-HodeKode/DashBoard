@@ -1,6 +1,6 @@
 import { useTranslation } from "react-i18next";
 import path from "@/assets/FileManager";
-import { btTypes } from "@/styles/globalStyle";
+import { btTypes, cn } from "@/styles/globalStyle";
 
 const [ enIcon, noIcon ] = path("icons", [ "uk.svg", "no.svg" ]);
 
@@ -21,7 +21,7 @@ function Language() {
         button: "rounded transition outline-none",
         active: "opacity-60",
         inactive: "cursor-pointer",
-        icon: "inline-block w-7 h-7 object-fit" + scale,
+        icon: cn("inline-block w-7 h-7 object-fit", scale),
     }
     return (
         <div className={styles.container}>
@@ -30,7 +30,7 @@ function Language() {
                     key={lng}
                     onClick={() => handleClick(lng)}
                     disabled={i18n.language === lng}
-                    className={styles.button + " " + (i18n.language === lng ? styles.active : styles.inactive)}
+                    className={cn(styles.button, (i18n.language === lng ? styles.active : styles.inactive))}
                 >
                     <img src={languageIcons[lng]} alt={languageNames[lng]} className={styles.icon} />
                 </button>

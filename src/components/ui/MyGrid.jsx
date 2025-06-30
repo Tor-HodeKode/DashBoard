@@ -5,6 +5,7 @@ import "react-resizable/css/styles.css";
 import { useWidgets } from "../../context/WidgetContext";
 import EloChart from "../EloChart";
 import StatCard from "../StatCard";
+import { themes, cn } from "@/styles/globalStyle";
 
 const layout = [
   { i: "a", x: 0, y: 0, w: 2, h: 2 },
@@ -12,8 +13,9 @@ const layout = [
   { i: "c", x: 4, y: 0, w: 2, h: 2 },
 ];
 
-export default function MyGrid({ nickname, playerStats }) {
+export default function MyGrid({ nickname, playerStats, themeName }) {
   const { widgets } = useWidgets();
+  const theme = themes[themeName] || themes.default;
 
   return (
     <GridLayout
@@ -26,7 +28,7 @@ export default function MyGrid({ nickname, playerStats }) {
       {widgets.map((widget) => (
         <div
           key={widget.id}
-          className="bg-gradient-to-br from-[#232526] to-[#414345] rounded-xl shadow flex items-center justify-center"
+          className={cn( theme.itemGradient , "rounded-xl shadow flex items-center justify-center")}
         >
           {widget.type === "EloChart" && <EloChart nickname="s1mple" />}
           {widget.type === "StatCard" && (
