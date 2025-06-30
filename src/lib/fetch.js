@@ -1,4 +1,4 @@
-const bearerKey = "c56d7ef0-ad98-495e-adeb-e2ed99f4110a";
+const bearerKey = process.env.BEARER_KEY;
 
 const cache = {};
 
